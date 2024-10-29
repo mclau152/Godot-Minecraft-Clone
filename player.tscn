@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://vs6q5b37vgsa"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_vuwr4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0g0cv"]
+radius = 0.48
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n3s31"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_vuwr4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_0g0cv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_n3s31")
+
+[node name="CameraMount" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraMount"]
+transform = Transform3D(1, 0, 0, 0, 0.887132, 0.461516, 0, -0.461516, 0.887132, 0, 3.50391, 5.92999)
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraMount"]
+target_position = Vector3(0, 0, -5)
+debug_shape_custom_color = Color(1, 1, 1, 1)
+debug_shape_thickness = 5
